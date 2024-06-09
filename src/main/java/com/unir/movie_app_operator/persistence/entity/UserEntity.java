@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "usuarios")
@@ -31,5 +32,5 @@ public class UserEntity {
     private  String fotoPerfil;
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP")
-    private LocalDateTime fechaRegistro;
+    private Date fechaRegistro;
 }

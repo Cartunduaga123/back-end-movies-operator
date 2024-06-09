@@ -2,41 +2,47 @@ package com.unir.movie_app_operator.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "DetalleOrden")
+@Table(name = "detalle_orden")
 @Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class DetalleOrdenEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long detalleID;
+    @Column(name = "id", nullable = false)
+    private Integer detalleID;
 
     @ManyToOne
-    @JoinColumn(name = "ordenID", nullable = false)
+    @JoinColumn(name = "orden_id", nullable = false)
     private OrdenesEntity orden;
 
-    @Column(name = "peliculaID", nullable = false, columnDefinition = "Integer(10)")
+    @Column(name = "pelicula_id", nullable = false)
     private Integer pelicula;
 
-    @Column(nullable = false, columnDefinition = "TIMESTAMP")
+    @Column(name = "fecha_transaccion", nullable = false, columnDefinition = "TIMESTAMP")
     private LocalDateTime fechaTransaccion;
 
-    @Column(nullable = false, columnDefinition = "Integer(10)")
+    @Column(name = "tiempo_alquiler", nullable = false)
     private Integer tiempoAlquiler;
 
-    @Column(nullable = false , columnDefinition = "Decimal(10,2)")
+    @Column(name = "precio", nullable = false)
     private BigDecimal precio;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "tipo_transaccion", nullable = false)
     private TipoTransaccion tipoTransaccion;
 
     public enum TipoTransaccion {
         ALQUILER, COMPRA
     }
-
 }
