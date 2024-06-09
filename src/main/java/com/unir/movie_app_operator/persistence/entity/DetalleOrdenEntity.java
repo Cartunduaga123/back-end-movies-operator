@@ -1,5 +1,6 @@
 package com.unir.movie_app_operator.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -30,6 +31,7 @@ public class DetalleOrdenEntity {
     private Integer pelicula;
 
     @Column(name = "fecha_transaccion", nullable = false, columnDefinition = "TIMESTAMP")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime fechaTransaccion;
 
     @Column(name = "tiempo_alquiler", nullable = false)

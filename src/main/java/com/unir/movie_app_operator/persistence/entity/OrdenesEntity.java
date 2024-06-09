@@ -13,7 +13,7 @@ public class OrdenesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ordenID;
+    private Integer ordenID;
 
     @ManyToOne
     @JoinColumn(name = "id", nullable = false)
