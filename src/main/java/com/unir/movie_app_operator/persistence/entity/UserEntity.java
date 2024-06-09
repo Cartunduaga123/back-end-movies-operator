@@ -16,7 +16,7 @@ import java.util.Date;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id", nullable = false, columnDefinition = "serial")
     private  Integer idUser;
 
     @Column(nullable = false, length = 100, unique = false)

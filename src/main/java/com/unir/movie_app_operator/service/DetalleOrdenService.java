@@ -1,6 +1,7 @@
 package com.unir.movie_app_operator.service;
 
 import com.unir.movie_app_operator.persistence.entity.DetalleOrdenEntity;
+import com.unir.movie_app_operator.persistence.entity.OrdenesEntity;
 import com.unir.movie_app_operator.persistence.repository.DetalleOrdenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,19 @@ public class DetalleOrdenService {
 
     public DetalleOrdenEntity get(int detalleID) {
         return this.detalleOrdenRepository.findById(detalleID).orElse(null);
+    }
+
+    public DetalleOrdenEntity save(DetalleOrdenEntity detalleOrdenEntity) {
+        this.detalleOrdenRepository.save(detalleOrdenEntity);
+        return detalleOrdenEntity;
+    }
+
+    public void delete(int detalleID) {
+        this.detalleOrdenRepository.deleteById(detalleID);
+    }
+
+    public boolean exists(int detalleID) {
+        return this.detalleOrdenRepository.existsById(detalleID);
     }
 
 }

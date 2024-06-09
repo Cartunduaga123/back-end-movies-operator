@@ -13,6 +13,7 @@ public class OrdenesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, columnDefinition = "serial")
     private Integer ordenID;
 
     @ManyToOne

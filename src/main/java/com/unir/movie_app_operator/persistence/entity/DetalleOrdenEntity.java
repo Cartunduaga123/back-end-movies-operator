@@ -20,7 +20,7 @@ public class DetalleOrdenEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id", nullable = false, columnDefinition = "serial")
     private Integer detalleID;
 
     @ManyToOne

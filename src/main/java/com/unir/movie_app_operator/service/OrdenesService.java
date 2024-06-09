@@ -27,4 +27,17 @@ public class OrdenesService {
     public OrdenesEntity get(int ordenID) {
         return this.ordenesRepository.findById(ordenID).orElse(null);
     }
+
+    public OrdenesEntity save(OrdenesEntity ordenesEntity) {
+        this.ordenesRepository.save(ordenesEntity);
+        return ordenesEntity;
+    }
+
+    public void delete(int ordenID) {
+        this.ordenesRepository.deleteById(ordenID);
+    }
+
+    public boolean exists(int ordenID) {
+        return this.ordenesRepository.existsById(ordenID);
+    }
 }

@@ -10,6 +10,7 @@ public class MediosDePagoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, columnDefinition = "serial")
     private Long medioPagoID;
 
     @Column(nullable = false, length = 50)
