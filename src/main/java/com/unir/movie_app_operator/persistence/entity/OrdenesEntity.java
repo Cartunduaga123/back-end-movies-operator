@@ -13,11 +13,11 @@ public class OrdenesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, columnDefinition = "serial")
+    @Column(name="id_orden", nullable = false, columnDefinition = "serial")
     private Integer ordenID;
 
     @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "id_usuario", nullable = false)
     private UserEntity usuario;
 
     @ManyToOne

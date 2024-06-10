@@ -28,7 +28,7 @@ public class DetalleOrdenEntity {
     private OrdenesEntity orden;
 
     @Column(name = "pelicula_id", nullable = false)
-    private Integer pelicula;
+    private Integer peliculaID;
 
     @Column(name = "fecha_transaccion", nullable = false, columnDefinition = "TIMESTAMP")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
