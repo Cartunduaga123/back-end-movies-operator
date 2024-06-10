@@ -1,7 +1,6 @@
 package com.unir.movie_app_operator.service;
 
 import com.unir.movie_app_operator.persistence.entity.DetalleOrdenEntity;
-import com.unir.movie_app_operator.persistence.entity.OrdenesEntity;
 import com.unir.movie_app_operator.persistence.repository.DetalleOrdenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,10 +13,10 @@ import reactor.core.publisher.Mono;
 public class DetalleOrdenService {
 
     private final DetalleOrdenRepository detalleOrdenRepository;
-    private WebClient.Builder webClientBuilder;
+    private final WebClient.Builder webClientBuilder;
 
     @Autowired
-    public DetalleOrdenService(DetalleOrdenRepository detalleOrdenRepository) {
+    public DetalleOrdenService(DetalleOrdenRepository detalleOrdenRepository, WebClient.Builder webClientBuilder) {
         this.detalleOrdenRepository = detalleOrdenRepository;
         this.webClientBuilder = webClientBuilder;
     }
@@ -35,7 +34,7 @@ public class DetalleOrdenService {
         if (movieExists) {
             this.detalleOrdenRepository.save(detalleOrdenEntity);
         }  else {
-            throw new IllegalArgumentException("Movie does not exist");
+            throw new IllegalArgumentException("Pelicula no encontrada");
         }
         return detalleOrdenEntity;
     }
